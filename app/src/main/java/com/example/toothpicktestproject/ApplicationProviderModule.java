@@ -15,7 +15,6 @@ class ApplicationProviderModule {
         module.bind(Application.class).toInstance(app);
         module.bind(ProviderBasedPojo.class).toProviderInstance(new ProviderBasedPojoProvider(app));
         scope.installModules(module); // remove this line and it fails!
-
         module.bind(ProviderTest.class).toInstance(new ProviderTest());
         scope.installModules(module);
     }

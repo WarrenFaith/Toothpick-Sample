@@ -27,9 +27,6 @@ public class App extends Application {
         MemberInjectorRegistryLocator.setRootRegistry(new com.example.toothpicktestproject.MemberInjectorRegistry());
 
         Scope appScope = Toothpick.openScope(getApplicationContext());
-        // uncomment to test the toInstance() example
-        ApplicationModule.install(appScope, this);
-        // uncomment to test the toProviderInstance() example
-//        ApplicationProviderModule.install(appScope, this);
+        ApplicationProviderModule.install(appScope, this);
     }
 }

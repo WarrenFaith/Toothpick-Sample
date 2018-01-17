@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.example.toothpicktestproject.providertest.ProviderTest;
-import com.example.toothpicktestproject.simpletest.SimpleTest;
 
 import javax.inject.Inject;
 
@@ -14,9 +13,6 @@ import toothpick.Toothpick;
 
 public class MainActivity extends AppCompatActivity {
     @Inject
-    SimpleTest mSimpleTest;
-
-    //    @Inject
     ProviderTest mProviderTest;
 
     @Override
@@ -28,11 +24,9 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        if (mSimpleTest != null) {
-            Log.e("SIMPLETEST", "Pojo is set: " + mSimpleTest.diWorks());
-        }
         if (mProviderTest != null) {
-            Log.e("PROVIDERTEST", "Pojo is set: " + mProviderTest.diWorks());
+            Log.e("PROVIDERTEST", "Pojo is set: " + mProviderTest.hasPojo());
+            Log.e("PROVIDERTEST", "Pojo has application set: " + mProviderTest.pojoHasApplication());
         }
     }
 }
