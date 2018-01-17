@@ -12,8 +12,9 @@ class ApplicationModule {
     public static void install(Scope scope, App app) {
         Module module = new Module();
         module.bind(Application.class).toInstance(app);
-        scope.installModules(module); // remove this line and it fails!
-
+        scope.installModules(module);
+        // remove this line above and it fails for PlainPojo. There will be no application injected.
+        // do I really have to apply "app" as a parameter to the constructor even with DI?
         module.bind(PlainPojo.class).toInstance(new PlainPojo());
         module.bind(SimpleTest.class).toInstance(new SimpleTest());
         scope.installModules(module);
